@@ -1,3 +1,18 @@
+platform=$(shell uname)
+bits=$(shell getconf LONG_BIT)
+
+ifeq ($(platform), Linux)
+p=l
+else
+ifeq ($(platform), Darwin)
+p=m
+else
+p=w
+endif
+endif
+
+
+
 PKG_CPPFLAGS = -pthread -O3 -DKXVER=3 -I.
 PKG_LIBS = -pthread
-OBJECTS = base.o c.a
+OBJECTS = base.o $(p)$(bits)/c.a
