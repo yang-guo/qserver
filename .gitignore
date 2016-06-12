@@ -1,0 +1,83 @@
+###################################
+# Compiled Ignores
+###################################
+# Ignore the build and lib dirs
+build
+lib/*
+
+# Ignore any executables
+bin/*
+
+# file types
+*.com
+*.class
+*.dll
+*.exe
+*.so
+*.o
+
+###################################
+# Compressed Packages
+###################################
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.gzip
+
+###################################
+# Data Files
+###################################
+*.csv
+*.tsv
+# *.txt
+*.log
+*.sqlite
+*.dta
+*.dat
+*.xls
+*.xlsx
+
+###################################
+# R specific
+###################################
+.Rhistory
+.Rproj.user/
+..Rcheck/
+*.Rda
+*.Rds
+*.Rdata
+
+###################################
+# node specific
+###################################
+node_modules/
+bower_components/
+
+###################################
+# Miscellaneous
+###################################
+# Ignore random files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+.dropbox
+.kdev4/
+*.kdev4
+.kdev_include_paths
+
+###################################
+# Miscellaneous
+###################################
+.deploy_git/
+public/
+db.json

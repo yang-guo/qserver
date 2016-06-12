@@ -1,0 +1,3 @@
+PKG_CPPFLAGS = -pthread -O3 -DKXVER=3 -I.
+PKG_LIBS = -pthread
+OBJECTS = base.o c.a
