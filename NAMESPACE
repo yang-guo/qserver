@@ -2,6 +2,7 @@
 
 export(close_connection)
 export(convert_binary)
+export(convert_r)
 export(execute)
 export(open_connection)
 useDynLib(qserver)

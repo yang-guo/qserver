@@ -23,6 +23,12 @@ convert_binary <- function(raw_vector) {
 	.Call("kx_r_convert_binary", raw_vector)
 }
 
+#' @export
+convert_r <- function(r_obj) {
+	.Call("kx_r_convert_r", r_obj)
+}
+
+
 k <- function(query) {
     h <- get(".k.h", envir = .GlobalEnv)
     execute(h, query)

@@ -16,6 +16,7 @@ EXPORT SEXP kx_r_open_connection(SEXP);
 EXPORT SEXP kx_r_close_connection(SEXP);
 EXPORT SEXP kx_r_execute(SEXP c, SEXP);
 EXPORT SEXP kx_r_convert_binary(SEXP);
+EXPORT SEXP kx_r_convert_r(SEXP);
 
 /*
  * Open a connection to an existing kdb+ process.
@@ -111,7 +112,7 @@ SEXP kx_r_convert_binary(SEXP binary)
 	khp("",-1);
 	bytes = ktn(KG, sizeof(arr));
 	memcpy(kG(bytes), arr, sizeof(arr));
-	
+
 	if(okx(bytes) & n > 1) {
 		result = d9(bytes);
 		s = from_any_kobject(result);
@@ -125,4 +126,23 @@ SEXP kx_r_convert_binary(SEXP binary)
 		UNPROTECT(1);
 	}
 	return s;
+}
+
+SEXP kx_r_convert_r(SEXP robj)
+{
+	K conversion, serialized;
+	SEXP result;
+
+	khp("", -1);
+	conversion = from_any_robject(robj);
+	serialized = b9(2, conversion);
+
+	PROTECT(result = allocVector(RAWSXP, serialized->n));
+	for(int i = 0; i < length(result); i++) {RAW(result)[i] = (unsigned char) kG(serialized)[i];}
+
+	r0(conversion);
+	r0(serialized);
+	UNPROTECT(1);
+
+	return result;
 }

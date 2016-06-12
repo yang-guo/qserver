@@ -11,4 +11,5 @@
 #include <k.h>
 
 #include "common.c"
+#include "rserver.c"
 #include "qserver.c"
