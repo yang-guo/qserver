@@ -9,8 +9,8 @@ open_connection <- function(host="localhost", port=5000, user=NULL) {
 }
 
 #' @export
-execute <- function(connection, query) {
-  .Call("kx_r_execute", as.integer(connection), query)
+execute <- function(connection, query, ...) {
+  .Call("kx_r_execute", as.integer(connection), query, list(...))
 }
 
 #' @export
@@ -28,8 +28,8 @@ convert_r <- function(r_obj) {
 	.Call("kx_r_convert_r", r_obj)
 }
 
-
-k <- function(query) {
+#' @export
+k <- function(query, ...) {
     h <- get(".k.h", envir = .GlobalEnv)
-    execute(h, query)
+    execute(h, query, ...)
 }

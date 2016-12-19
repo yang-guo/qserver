@@ -1,0 +1,3 @@
+PKG_CPPFLAGS = -O3 -DKXVER=3 -I.
+OBJECTS = base.o
+PKG_LIBS= w64/c.o -lws2_32
